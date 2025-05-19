@@ -27,7 +27,7 @@ export type UserResponse = {
 export type UserRequest = {
     name: string;
     email: string;
-    password: string;
+    password?: string;
 };
 
 export type GroupRequest = {

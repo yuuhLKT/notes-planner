@@ -64,10 +64,13 @@ const Profile = () => {
     const handleSave = async () => {
         try {
             if (!user) return
-            const dataToSend = { ...formData }
-            if (!dataToSend.password) {
-                delete dataToSend.password
+
+            const dataToSend = {
+                name: formData.name,
+                email: formData.email,
+                ...(formData.password && { password: formData.password }),
             }
+
             const updatedUser = await userService.updateUser(
                 user._id,
                 dataToSend
